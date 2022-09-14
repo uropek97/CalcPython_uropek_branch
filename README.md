@@ -2,7 +2,7 @@
 
 Участники:
 1) https://github.com/SukonkinMK/
-2) 
-3) 
+2) https://github.com/UngureanuMihail
+3) https://github.com/uropek97
 
 [Схема](/Calc.drawio.png)
