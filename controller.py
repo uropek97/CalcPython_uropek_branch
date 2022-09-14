@@ -1,5 +1,6 @@
 import view
 import rational_calc
+import complexmath
 
 
 def button_add():
@@ -40,3 +41,18 @@ def button_power():
     rational_calc.init(value_x, value_y)
     result = rational_calc.power()
     view.view_data(result)
+
+
+def button_sqrt():
+    value_x = view.get_value()
+    result = complexmath.sqrt(value_x)
+    view.view_data(result)
+
+
+def run():
+    print('Для сложения введите "+"\n'
+          'Для вычитание введите "-"\n'
+          'Для умножение введите "*"\n'
+          'Для деление введите "/"\n'
+          'Для извлечения корня введите "sqrt"\n'
+          'Для возведение в степерь введите "^"')
