@@ -28,7 +28,3 @@ def processdata(opchar:list):
         return False
    
 return True
-
-def sendData(opchar:list):
-    opchar.pop()
-    return opchar
