@@ -11,7 +11,7 @@ def inputOp():
 def processdata(opchar:list):
     symchar = ['+', '-', '*', '/', '^']
 
-    if len(opchar)!=4:
+    if len(opchar)!=3:
         return False
 
     try: 
@@ -26,19 +26,9 @@ def processdata(opchar:list):
         Decimal(opchar[2])
     except:
         return False
-    
-    if opchar[3] != '=':
-        return False
-
-    return True
+   
+return True
 
 def sendData(opchar:list):
     opchar.pop()
     return opchar
-
-correctOp = False
-while not correctOp:
-    op = inputOp()
-    correctOp = processdata(op)
-
-data = sendData(op)
