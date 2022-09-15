@@ -1,4 +1,6 @@
 # модуль для работы с рациональными числами
+import math
+
 x = 0
 y = 0
 
@@ -9,6 +11,11 @@ def init(a, b):
     global y
     x = a
     y = b
+
+# функция для инициализации одного значения для операций типа sqrt
+def init_value(a):
+    global x
+    x = a
 
 
 add = lambda: x + y  # сложение значений
