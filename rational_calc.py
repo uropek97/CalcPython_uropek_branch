@@ -12,7 +12,7 @@ def init(a, b):
     x = a
     y = b
 
-
+# функция для инициализации одного значения для операций типа sqrt
 def init_value(a):
     global x
     x = a
