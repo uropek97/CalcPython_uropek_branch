@@ -1,111 +1,71 @@
 import math
 import logger
-import view
 import rational_calc
 
-value_x = 0
-value_y = 0
 
-
-def init_values():
-    global value_x
-    global value_y
-    value_x = view.get_value()
-    value_y = view.get_value()
-
-
-def init_value():
-    global value_x
-    value_x = view.get_value()
-
-
-def button_add(result):
+def button_add(value_x, value_y):
     rational_calc.init(value_x, value_y)
     result = rational_calc.add()
     return result
 
 
-def button_diff(result):
+def button_diff(value_x, value_y):
     rational_calc.init(value_x, value_y)
     result = rational_calc.diff()
     return result
 
 
-def button_mult(result):
+def button_mult(value_x, value_y):
     rational_calc.init(value_x, value_y)
     result = rational_calc.mult()
     return result
 
 
-def button_div(result):
+def button_div(value_x, value_y):
     rational_calc.init(value_x, value_y)
     result = rational_calc.div()
     return result
 
 
-def button_power(result):
+def button_power(value_x, value_y):
     rational_calc.init(value_x, value_y)
     result = rational_calc.power()
     return result
 
 
-def button_sqrt(result):
+def button_sqrt(value_x):
     rational_calc.init_value(value_x)
     result = math.sqrt(value_x)
     return result
 
 
-# метод для вывода меню
-def menu():
-    global message
-    message = ('Для сложения введите "+"\n'
-               'Для вычитание введите "-"\n'
-               'Для умножение введите "*"\n'
-               'Для деление введите "/"\n'
-               'Для извлечения корня введите "sqrt"\n'
-               'Для возведение в степерь введите "^"')
-    print(message)
+# # метод для вывода меню
+# def menu():
+#     global message
+#     message = ('Для сложения введите "+"\n'
+#                'Для вычитание введите "-"\n'
+#                'Для умножение введите "*"\n'
+#                'Для деление введите "/"\n'
+#                'Для извлечения корня введите "sqrt"\n'
+#                'Для возведение в степерь введите "^"')
+#     print(message)
 
 
-def run():
-    menu()
-    x = True
-    while x:
-        choice = input('\nВведите нужную операцию = ')
-        if choice == '+':
-            init_values()
-            button_add(result='')
-            print(f"Ваш результат {button_add(result='')}")
-            logger.log(f"{value_x} {choice} {value_y} ", button_add(result=''))
-        if choice == '-':
-            init_values()
-            button_diff(result='')
-            print(f"Ваш результат {button_diff(result='')}")
-            logger.log(f"{value_x} {choice} {value_y} ", button_diff(result=''))
+def run(choice, value_x, value_y):
+    result = 0
+    text_log = f"{value_x} {choice} {value_y} = "
+    comand_dict = {'+': button_add,
+                   '-': button_diff,
+                   '*': button_mult,
+                   '/': button_div,
+                   '^': button_power,
+                   'sqrt': button_sqrt}
+    if choice in comand_dict:
+        if choice != 'sqrt':
+            result = comand_dict[choice](value_x, value_y)
+        else:
+            result = comand_dict[choice](value_x)
+            text_log = f"{choice} {value_x} = "
 
-        if choice == '*':
-            init_values()
-            button_mult(result='')
-            print(f"Ваш результат {button_mult(result='')}")
-            logger.log(f"{value_x} {choice} {value_y} ", button_mult(result=''))
-        if choice == '/':
-            init_values()
-            button_div(result='')
-            print(f"Ваш результат {button_div(result='')}")
-            logger.log(f"{value_x} {choice} {value_y} ", button_div(result=''))
-        if choice == '^':
-            init_values()
-            button_power(result='')
-            print(f"Ваш результат {button_power(result='')}")
-            logger.log(f"{value_x} {choice} {value_y} ", button_power(result=''))
-        if choice == 'sqrt':
-            init_value()
-            button_sqrt(result='')
-            print(f"Ваш результат = {(button_sqrt(result=''))}")
-            logger.log(f"{choice} {value_x} ", button_sqrt(result=''))
-        if choice == 'help':
-            menu()
-            logger.log(f"{choice}", message)
-        if choice == 'exit':
-            logger.log(f"{choice}", 'Выход с приложения')
-            x = False
+    logger.log(text_log, result)
+    return result
