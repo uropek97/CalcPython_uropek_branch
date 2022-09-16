@@ -14,6 +14,8 @@ def diff(a, b):
 
 
 def div(a, b):
+    if not b:
+        return 'Деление на ноль'
     return a / b
 
 

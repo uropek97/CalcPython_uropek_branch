@@ -1,5 +1,6 @@
-import controller
+import Interface
 
 # Точка входа
-controller.run()
+Interface.start()
+#controller.run()
 
