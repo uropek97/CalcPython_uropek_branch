@@ -1,6 +1,7 @@
 import math
 import logger
 import rational_calc
+import complexmath
 
 
 def button_add(value_x, value_y):
@@ -22,8 +23,7 @@ def button_mult(value_x, value_y):
 
 
 def button_div(value_x, value_y):
-    rational_calc.init(value_x, value_y)
-    result = rational_calc.div()
+    result = complexmath.div(value_x, value_y)
     return result
 
 
@@ -34,8 +34,7 @@ def button_power(value_x, value_y):
 
 
 def button_sqrt(value_x):
-    rational_calc.init_value(value_x)
-    result = math.sqrt(value_x)
+    result = complexmath.sqrt(value_x)
     return result
 
 
