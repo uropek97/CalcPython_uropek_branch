@@ -98,9 +98,14 @@ def start():
                               command=lambda: send2('/', mode.get(), entries, result_label))
     divide_button.place(relx=0.58, rely=0.58, anchor='n')
     # запуск функции sqrt () при нажатий кнопки
-    sqrt_button = tk.Button(mainWindow, text="sqrt",
+    sqrt_button = tk.Button(mainWindow, text="√",
                             command=lambda: send2('sqrt', mode.get(), entries, result_label))
     sqrt_button.place(relx=0.70, rely=0.58, anchor='n')
+    # запуск функции power () при нажатий кнопки
+    degree_button = tk.Button(mainWindow, text='^',
+                             command=lambda: send2('^', mode.get(), entries, result_label))
+    degree_button.place(relx=0.82, rely=0.58, anchor='n')
+
     mainWindow.mainloop()
 
 
